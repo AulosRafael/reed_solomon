@@ -1,16 +1,19 @@
 import 'package:reed_solomon/reed_solomon.dart';
 
 void main() {
+  List<int> messageIn = [8, 32, 22, 28, 24, 57, 33, 50, 46, 46, 38, 8, 32, 35, 13, 8, 7, 31, 6, 49, 29, 52, 31, 43, 16];
+
   ReedSolomon reedSolomon = ReedSolomon(
-    symbolSizeInBits: 8,
-    numberOfCorrectableSymbols: 9,
-    primitivePolynomial: 301,
+    symbolSizeInBits: 6,
+    numberOfCorrectableSymbols: 6,
+    primitivePolynomial: 67,
     initialRoot: 1,
   );
 
-  List<int> messageIn = [233, 131, 133, 175, 161, 150, 130, 130, 141, 147, 149, 141, 155, 134, 66, 67, 68, 69, 142, 164, 129, 118, 249, 4, 53, 128, 255, 2, 218, 96, 83, 223, 194, 16, 146, 194, 131, 16, 241, 251];
-  List<int> messageOut = reedSolomon.decode(messageIn);
-
-  print(messageOut);
-  // [232, 131, 133, 175, 161, 150, 130, 130, 141, 147, 149, 141, 155, 140, 66, 67, 68, 69, 142, 164, 129, 118];
+  try {
+    List<int> messageOut = reedSolomon.decode(messageIn); // [8, 32, 22, 28, 24, 57, 33, 50, 46, 46, 38, 8, 32];
+    // TODO: implement try
+  } on ReedSolomonException catch(e) {
+    // TODO: implement catch
+  } 
 }
