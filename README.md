@@ -7,7 +7,7 @@ Based on [Reed–Solomon codes for coders](https://en.m.wikiversity.org/wiki/Ree
 ## Usage
 
 Create a new `ReedSolomon` object
-```
+```dart
 var reedSolomon = ReedSolomon(
         symbolSizeInBits: 8,
         numberOfCorrectableSymbols: 5,
@@ -17,7 +17,7 @@ var reedSolomon = ReedSolomon(
 ```
 
 and decode `message`
-```
+```dart
 reedSolomon.decode(message);
 ```
 
