@@ -1,4 +1,4 @@
-import 'package:flutter_test/flutter_test.dart';
+import 'package:test/test.dart';
 import 'package:reed_solomon/src/galois_field.dart';
 
 void main() {

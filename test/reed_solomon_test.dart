@@ -1,4 +1,4 @@
-import 'package:flutter_test/flutter_test.dart';
+import 'package:test/test.dart';
 import 'package:reed_solomon/src/reed_solomon.dart';
 import 'package:reed_solomon/src/reed_solomon_exception.dart';
 
