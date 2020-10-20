@@ -69,7 +69,7 @@ void main() {
     var action = () => _sut.divide(a, b);
 
     // Assert
-    expect(action, throwsA(isInstanceOf<IntegerDivisionByZeroException>()));
+    expect(action, throwsA(isA<IntegerDivisionByZeroException>()));
   });
 
   test('divide numbers with a and b nonzero', () {

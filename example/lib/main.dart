@@ -11,7 +11,8 @@ void main() {
   );
 
   try {
-    List<int> messageOut = reedSolomon.decode(messageIn); // [8, 32, 22, 28, 24, 57, 33, 50, 46, 46, 38, 8, 32];
+    List<int> messageOut = reedSolomon.decode(messageIn); 
+    // messageOut = [8, 32, 22, 28, 24, 57, 33, 50, 46, 46, 38, 8, 32];
     // TODO: implement try
   } on ReedSolomonException catch(e) {
     // TODO: implement catch

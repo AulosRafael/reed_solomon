@@ -102,7 +102,7 @@ void main() {
         var action = () => _sut.decode(msgIn);
 
         // Assert
-        expect(action, throwsA(isInstanceOf<ReedSolomonException>()));
+        expect(action, throwsA(isA<ReedSolomonException>()));
       },
     );
   });
