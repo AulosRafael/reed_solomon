@@ -1,6 +1,6 @@
 name: reed_solomon
 description: Reed–Solomon error correction
-version: 0.0.1
+version: 0.1.0
 homepage: https://github.com/AulosRafael/reed_solomon
 
 environment:

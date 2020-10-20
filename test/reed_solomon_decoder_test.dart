@@ -4,13 +4,14 @@ import 'package:reed_solomon/src/reed_solomon_exception.dart';
 
 void main() {
   int _codewordSize;
+  int _symbolSizeInBits;
   ReedSolomon _sut;
   List<int> _data;
   List<int> _expected;
 
   group('Galois Field 1 (UPU 4-state barcode)', () {
     setUp(() {
-      var _symbolSizeInBits = 6;
+      _symbolSizeInBits = 6;
       _codewordSize = (1 << _symbolSizeInBits);
       _sut = ReedSolomon(
         symbolSizeInBits: _symbolSizeInBits,
@@ -105,8 +106,22 @@ void main() {
         expect(action, throwsA(isA<ReedSolomonException>()));
       },
     );
-  });
 
+    test(
+      'message is too long - Reed Solomon exception is thrown',
+      () {
+        // Assemble
+        var _codewordSize = (1 << _symbolSizeInBits);
+        var _msgIn = List<int>.filled(_codewordSize, 0);
+
+        // Act
+        var action = () => _sut.encode(_msgIn);
+
+        // Assert
+        expect(action, throwsA(isA<ReedSolomonException>()));
+      },
+    );
+  });
 
   test(
     'Galois Field 2 (QR Code)',

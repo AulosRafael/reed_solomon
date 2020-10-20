@@ -4,21 +4,51 @@ import 'package:reed_solomon/src/reed_solomon_exception.dart';
 import 'package:meta/meta.dart';
 
 class ReedSolomon {
-  final GaloisField _galoisField;
-  final int _eccCount;
-  final int _power;
+  GaloisField _galoisField;
+  int _eccCount;
+  int _power;
+  GFPolynomial _polynomialGenerator;
 
   ReedSolomon({
     @required int symbolSizeInBits,
     @required int numberOfCorrectableSymbols,
     @required int primitivePolynomial,
     @required int initialRoot,
-  })  : this._galoisField = GaloisField(
-          primitivePolynomial,
-          1 << symbolSizeInBits,
-        ),
-        this._eccCount = 2 * numberOfCorrectableSymbols,
-        this._power = initialRoot;
+  }) {
+    this._galoisField = GaloisField(primitivePolynomial, 1 << symbolSizeInBits);
+    this._eccCount = 2 * numberOfCorrectableSymbols;
+    this._power = initialRoot;
+    this._polynomialGenerator = GFPolynomial(this._galoisField, <int>[1]);
+
+    for (int i = 0; i < this._eccCount; i++) {
+      this._polynomialGenerator = this._polynomialGenerator.multiply(
+            GFPolynomial(
+              this._galoisField,
+              <int>[1, this._galoisField.pow(2, i + this._power)],
+            ),
+          );
+    }
+  }
+
+  /// returns encoded [data]
+  /// or throw [ReedSolomonException] if data cannot be encoded
+  List<int> encode(List<int> data) {
+    if (data.length + this._eccCount > this._galoisField.size - 1) {
+      throw ReedSolomonException(
+          'message is too long, ${data.length} when max is ${this._galoisField.size - 1 - this._eccCount}');
+    }
+
+    GFPolynomial dataPolynomial =
+        GFPolynomial(this._galoisField, data.reversed.toList());
+    GFPolynomial remainder =
+        dataPolynomial.divide(this._polynomialGenerator)[1];
+
+    List<int> message = List<int>.filled(this._eccCount, 0);
+    int numZero = this._eccCount - remainder.length;
+    message.setAll(numZero, remainder.coefficients);
+
+    return message.reversed.toList();
+  }
 
   /// returns decoded [data]
   /// or throw [ReedSolomonException] if data cannot be decoded
