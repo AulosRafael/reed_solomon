@@ -1,4 +1,4 @@
-import 'package:dart_reed_solomon/reed_solomon.dart';
+import 'package:dart_reed_solomon/dart_reed_solomon.dart';
 
 void main() {
   List<int> messageIn, messageOut;
