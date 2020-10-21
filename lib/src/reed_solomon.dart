@@ -33,9 +33,9 @@ class ReedSolomon {
   /// returns encoded [data]
   /// or throw [ReedSolomonException] if data cannot be encoded
   List<int> encode(List<int> data) {
-    if (data.length + this._eccCount > this._galoisField.size - 1) {
+    if (data.length > this._galoisField.size - 1) {
       throw ReedSolomonException(
-          'message is too long, ${data.length} when max is ${this._galoisField.size - 1 - this._eccCount}');
+          'message is too long, ${data.length} when max is ${this._galoisField.size - 1}');
     }
 
     GFPolynomial dataPolynomial =
