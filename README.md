@@ -16,7 +16,12 @@ var reedSolomon = ReedSolomon(
       );
 ```
 
-and decode `message`
+and encode `message`
+```dart
+reedSolomon.encode(message);
+```
+
+or decode `message`
 ```dart
 reedSolomon.decode(message);
 ```
