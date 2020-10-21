@@ -1,4 +1,4 @@
-import 'package:reed_solomon/src/galois_field.dart';
+import 'package:dart_reed_solomon/src/galois_field.dart';
 import 'dart:math' as math;
 
 class GFPolynomial {

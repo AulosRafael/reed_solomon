@@ -1,6 +1,6 @@
-name: reed_solomon
+name: dart_reed_solomon
 description: Reed–Solomon error correction
-version: 0.1.0
+version: 0.1.0+2
 homepage: https://github.com/AulosRafael/reed_solomon
 
 environment:

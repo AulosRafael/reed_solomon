@@ -1,6 +1,6 @@
 import 'package:test/test.dart';
-import 'package:reed_solomon/src/reed_solomon.dart';
-import 'package:reed_solomon/src/reed_solomon_exception.dart';
+import 'package:dart_reed_solomon/src/reed_solomon.dart';
+import 'package:dart_reed_solomon/src/reed_solomon_exception.dart';
 
 void main() {
   int _codewordSize;

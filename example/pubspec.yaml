@@ -4,11 +4,7 @@ environment:
   sdk: ">=2.7.0 <3.0.0"
 
 dependencies:
-  flutter:
-    sdk: flutter
-  reed_solomon:
+  dart_reed_solomon:
     path: ..\
 
 dev_dependencies:
-  flutter_test:
-    sdk: flutter

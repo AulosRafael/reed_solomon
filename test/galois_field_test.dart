@@ -1,5 +1,5 @@
 import 'package:test/test.dart';
-import 'package:reed_solomon/src/galois_field.dart';
+import 'package:dart_reed_solomon/src/galois_field.dart';
 
 void main() {
   GaloisField _sut;
