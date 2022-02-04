@@ -5,6 +5,7 @@ environment:
 
 dependencies:
   dart_reed_solomon:
-    path: ..\
 
-dev_dependencies:
+dependency_overrides:
+  dart_reed_solomon:
+    path: ../
