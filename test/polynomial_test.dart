@@ -1,10 +1,10 @@
-import 'package:test/test.dart';
 import 'package:dart_reed_solomon/src/galois_field.dart';
 import 'package:dart_reed_solomon/src/polynomial.dart';
+import 'package:test/test.dart';
 
 void main() {
-  GaloisField _galoisField;
-  GFPolynomial _sut;
+  late GaloisField _galoisField;
+  late GFPolynomial _sut;
 
   setUpAll(() {
     _galoisField = GaloisField(285, 256);
