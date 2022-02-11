@@ -1,6 +1,6 @@
 import 'dart:math' as math;
 
-import 'package:dart_reed_solomon/src/galois_field.dart';
+import 'galois_field.dart';
 
 class GFPolynomial {
   final GaloisField _galoisField;

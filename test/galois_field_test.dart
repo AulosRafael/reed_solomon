@@ -1,4 +1,4 @@
-import 'package:dart_reed_solomon/src/galois_field.dart';
+import 'package:dart_reed_solomon_nullsafety/src/galois_field.dart';
 import 'package:test/test.dart';
 
 void main() {

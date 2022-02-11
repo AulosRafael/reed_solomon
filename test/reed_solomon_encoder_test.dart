@@ -1,5 +1,5 @@
-import 'package:dart_reed_solomon/src/reed_solomon.dart';
-import 'package:dart_reed_solomon/src/reed_solomon_exception.dart';
+import 'package:dart_reed_solomon_nullsafety/src/reed_solomon.dart';
+import 'package:dart_reed_solomon_nullsafety/src/reed_solomon_exception.dart';
 import 'package:test/test.dart';
 
 void main() {

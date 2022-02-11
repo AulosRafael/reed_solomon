@@ -1,6 +1,6 @@
-import 'package:dart_reed_solomon/src/galois_field.dart';
-import 'package:dart_reed_solomon/src/polynomial.dart';
-import 'package:dart_reed_solomon/src/reed_solomon_exception.dart';
+import 'galois_field.dart';
+import 'polynomial.dart';
+import 'reed_solomon_exception.dart';
 
 class ReedSolomon {
   final GaloisField _galoisField;

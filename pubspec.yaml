@@ -1,6 +1,6 @@
-name: dart_reed_solomon
-description: Reed–Solomon error correction
-version: 0.1.0+2
+name: dart_reed_solomon_nullsafety
+description: Reed–Solomon error correction. Forked from dart_reed_solomon to add sound null safety.
+version: 0.2.0
 homepage: https://github.com/AulosRafael/reed_solomon
 
 environment:
