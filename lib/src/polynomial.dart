@@ -1,5 +1,6 @@
-import 'package:dart_reed_solomon/src/galois_field.dart';
 import 'dart:math' as math;
+
+import 'galois_field.dart';
 
 class GFPolynomial {
   final GaloisField _galoisField;
@@ -11,9 +12,8 @@ class GFPolynomial {
     }
   }
 
-  GFPolynomial.zero(this._galoisField, int len) {
-    this._coefficients = List.filled(len, 0);
-  }
+  GFPolynomial.zero(this._galoisField, int len)
+      : this._coefficients = List.filled(len, 0);
 
   List<int> get coefficients => this._coefficients;
   bool get isZero => this._coefficients[0] == 0;

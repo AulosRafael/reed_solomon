@@ -1,23 +1,22 @@
-import 'package:dart_reed_solomon/src/galois_field.dart';
-import 'package:dart_reed_solomon/src/polynomial.dart';
-import 'package:dart_reed_solomon/src/reed_solomon_exception.dart';
-import 'package:meta/meta.dart';
+import 'galois_field.dart';
+import 'polynomial.dart';
+import 'reed_solomon_exception.dart';
 
 class ReedSolomon {
-  GaloisField _galoisField;
-  int _eccCount;
-  int _power;
-  GFPolynomial _polynomialGenerator;
+  final GaloisField _galoisField;
+  final int _eccCount;
+  final int _power;
+  late GFPolynomial _polynomialGenerator;
 
   ReedSolomon({
-    @required int symbolSizeInBits,
-    @required int numberOfCorrectableSymbols,
-    @required int primitivePolynomial,
-    @required int initialRoot,
-  }) {
-    this._galoisField = GaloisField(primitivePolynomial, 1 << symbolSizeInBits);
-    this._eccCount = 2 * numberOfCorrectableSymbols;
-    this._power = initialRoot;
+    required int symbolSizeInBits,
+    required int numberOfCorrectableSymbols,
+    required int primitivePolynomial,
+    required int initialRoot,
+  })  : this._galoisField =
+            GaloisField(primitivePolynomial, 1 << symbolSizeInBits),
+        this._eccCount = 2 * numberOfCorrectableSymbols,
+        this._power = initialRoot {
     this._polynomialGenerator = GFPolynomial(this._galoisField, <int>[1]);
 
     for (int i = 0; i < this._eccCount; i++) {
@@ -122,7 +121,7 @@ class ReedSolomon {
 
   List<int> _findErrorPositions(GFPolynomial lambda, int nmsg) {
     int errs = lambda.length - 1;
-    List<int> errorPos = List<int>();
+    List<int> errorPos = [];
     int nsymbols = this._galoisField.size - 1;
 
     for (int i = 0; i < nsymbols; i++) {
@@ -177,7 +176,7 @@ class ReedSolomon {
     int magnitude;
 
     // formal derivative
-    List<int> derivative = List<int>();
+    List<int> derivative = [];
     for (int i = 0; i < lambda.length - 1; i++) {
       int degree = lambda.length - 1 - i;
       derivative.add(degree.isEven ? 0 : lambda[i]);

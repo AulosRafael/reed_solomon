@@ -1,4 +1,6 @@
-# Reed Solomon
+# Reed Solomon (Sound Null Safe fork)
+
+_This package is a temporary fork of [dart_reed_solomon](https://pub.dartlang.org/packages/dart_reed_solomon) that adds sound null safety. The following description is taken from the original package._
 
 An implementation of Reed-Solomon error correction using Dart language.
 

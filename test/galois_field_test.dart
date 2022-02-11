@@ -1,8 +1,8 @@
+import 'package:dart_reed_solomon_nullsafety/src/galois_field.dart';
 import 'package:test/test.dart';
-import 'package:dart_reed_solomon/src/galois_field.dart';
 
 void main() {
-  GaloisField _sut;
+  late GaloisField _sut;
 
   setUpAll(() {
     _sut = GaloisField(285, 256);

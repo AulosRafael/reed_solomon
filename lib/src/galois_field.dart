@@ -1,12 +1,11 @@
 class GaloisField {
-  int _size;
-  List<int> _aLog;
-  List<int> _log;
+  final int _size;
+  final List<int> _log;
+  final List<int> _aLog;
 
-  GaloisField(int pp, this._size) {
-    this._aLog = List<int>.filled(this._size, 0);
-    this._log = List<int>.filled(this._size, 0);
-
+  GaloisField(int pp, this._size)
+      : this._aLog = List<int>.filled(_size, 0),
+        this._log = List<int>.filled(_size, 0) {
     var x = 1;
     for (var i = 0; i < this._size; i++) {
       this._aLog[i] = x;
